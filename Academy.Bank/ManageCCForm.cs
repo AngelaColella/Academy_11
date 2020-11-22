@@ -13,12 +13,6 @@ namespace Academy.Bank
 {
     public partial class ManageCCForm : Form
     {
-        //public ManageCCForm(string numconto)
-        //{
-        //    InitializeComponent();
-        //    //this.lbl_CC.Text = numconto;
-        //}
-
         public ContoCorrente conto_corrente = new ContoCorrente();
 
         public ManageCCForm(ContoCorrente cc)
@@ -28,11 +22,6 @@ namespace Academy.Bank
             this.lbl_CC.Text = conto_corrente.GetNumeroConto();
             double saldo = conto_corrente.GetSaldo();
             this.lbl_displaySaldo.Text = saldo.ToString("N"); // converto da double a string perchè nella text box ci vuole una stringa
-        }
-
-        private void lbl_CC_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btn_Preleva_Click(object sender, EventArgs e)
@@ -81,6 +70,10 @@ namespace Academy.Bank
             this.Close();
             LoginForm loginform = (LoginForm)Tag;
             loginform.Close();
+        }
+        private void lbl_CC_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

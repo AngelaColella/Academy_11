@@ -34,9 +34,12 @@ namespace Academy.Bank
 
         private void btn_close_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Close(); // chiusura della OpenCCForm
             LoginForm loginform = (LoginForm)Tag;
-            loginform.Close();
+            // sto costruendo il riferimento a LoginForm tramite Tag
+            // Tag è di tipo Object, e punta a LoginForm, quindi posso fare un downcast alla LoginForm in modo da poterne vedere le proprietà
+
+            loginform.Close(); // è necessario fare la chiusura della LoginForm perchè altirmenti resterebbe aperta 
         }
 
         private void label6_Click(object sender, EventArgs e)
@@ -46,14 +49,17 @@ namespace Academy.Bank
 
         private void btn_Conferma_Click(object sender, EventArgs e)
         {
+            // quando l'utente conferma, si salvano i dati inseriti nelle seguenti stringhe
             string username = this.label3.Text;
             string numconto = this.label5.Text;
             string nome = this.txt_Nome.Text;
             string cognome = this.txt_Cognome.Text;
             string cf = this.txt_CF.Text;
 
+            // si crea un nuovo conto con il numconto 
             ContoCorrente newCC = new ContoCorrente(numconto);
 
+            // si crea un nuovo cliente con i dati inseriti
             Cliente newCliente = new Cliente()
             {
                 Username = username,
@@ -63,8 +69,9 @@ namespace Academy.Bank
                 MioConto = newCC
             };
 
+            // si insrisce il nuovo cliente nel file clienti
             bool result = datamanager.CreateNewCliente(newCliente);
-            if (result)
+            if (result) //  Se l'operazione va a buon fine, si dà la possibilità di gestire il conto
             {
                 ManageCCForm manageform = new ManageCCForm(newCC);
                 manageform.Tag = this;
@@ -75,11 +82,11 @@ namespace Academy.Bank
             {
                 this.label9.Text = "Error";
             }
-
         }
 
         private void btn_Annulla_Click(object sender, EventArgs e)
         {
+           // il bottone annulla sostituisce i dati inseriti con spazi vuoti
             this.txt_Nome.Text = " ";
             this.txt_Cognome.Text = " ";
             this.txt_CF.Text = " ";

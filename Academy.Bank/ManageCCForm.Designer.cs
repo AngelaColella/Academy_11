@@ -268,7 +268,7 @@
             // btn_close
             // 
             this.btn_close.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_close.Location = new System.Drawing.Point(1209, 702);
+            this.btn_close.Location = new System.Drawing.Point(1323, 613);
             this.btn_close.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_close.Name = "btn_close";
             this.btn_close.Size = new System.Drawing.Size(204, 68);
@@ -307,7 +307,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1426, 886);
+            this.ClientSize = new System.Drawing.Size(1572, 814);
             this.Controls.Add(this.lbl_fondiInsuff2);
             this.Controls.Add(this.lbl_displaySaldo);
             this.Controls.Add(this.btn_close);
